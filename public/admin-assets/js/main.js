@@ -26,7 +26,7 @@ $(document).ready(function () {
   $('#select').select2({
     tags: true,
     tokenSeparators: [',']
-});
+  });
 });
 /* Toggle Icon
 ==============================*/

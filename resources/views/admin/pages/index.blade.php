@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="row">
-                            {{-- <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="counter">
                                     <i class="fa fa-newspaper"></i>
                                     <div class="counter-cont">
@@ -16,12 +16,36 @@
                                         <div class="count-name">Message</div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="w-100"></div>
+        <div class="row" style="margin: 0 -15px">
+            <div class="col-lg-6">
+                <div class="widget">
+                    <div class="widget-title"> Latest Messages
+                        <a href="{{ route('admin.messages.index') }}" class="custom-btn"> see all</a>
+                    </div>
+                    <div class="widget-content" style="padding: 0">
+                        @foreach ($messages as $message)
+                            <div class="item-list">
+                                <a href="{{ route('admin.messages.show', ['message' => $message->id]) }}">
+                                    <img src="{{ $message->image() }}" />
+                                    <div class="item-content">
+                                        {{ $message->email }}
+                                        <br />
+                                        <span> <i class="fa fa-clock"></i> {{ $message->created_at->diffForHumans() }}
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

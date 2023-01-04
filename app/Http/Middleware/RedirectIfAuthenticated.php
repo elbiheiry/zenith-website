@@ -22,17 +22,9 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            // if ($guard == "site" && Auth::guard($guard)->check()) {
-            //     $user = auth()->guard('site')->user();
-            //     $userSchool = $user->childrens()->firstOrFail()->school()->first();
-
-            //     return redirect()->route('site.store' , ['slug' => $userSchool->slug]);
-            // }
-
-            // if ($guard == "web" && Auth::guard($guard)->check()) {
+            if ($guard == "web" && Auth::guard($guard)->check()) {
                 return redirect('/admin');
-            // }
-
+            }
         }
 
         return $next($request);

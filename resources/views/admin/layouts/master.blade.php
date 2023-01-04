@@ -83,9 +83,7 @@
     <!-- JS Base And Vendor
         ==========================================-->
     <script src="{{ aurl('vendor/jquery/jquery.js') }}"></script>
-    <script src="{{ aurl('vendor/popper/popper.min.js') }}">
-        {{-- integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"> --}}
-    </script>
+    <script src="{{ aurl('vendor/popper/popper.min.js') }}"></script>
     <script src="{{ aurl('vendor/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ aurl('vendor/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
     <script src="{{ aurl('vendor/tagsinput/js/tagsinput.js') }}"></script>

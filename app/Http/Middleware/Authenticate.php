@@ -40,9 +40,9 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            // if (Arr::first($this->guards) === 'web') {
+            if (Arr::first($this->guards) === 'web') {
                 return route('admin.login');
-            // }
+            }
             // return route('site.login');
         }
     }

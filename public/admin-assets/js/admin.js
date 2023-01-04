@@ -121,10 +121,10 @@ function notification(type, message ,icon) {
 ==============================*/
 $(document).ready(function () {
     "use strict";
-    $('.uplaod-wrap .button').click(function () {
+    $(document).on('click' , '.uplaod-wrap .button' ,function () {
         $(".uplaod-wrap input[type='file']").trigger('click');
     });
-    $("input[type='file']").change(function () {
+    $(document).on('change' , "input[type='file']" ,function () {
         $(this).parent('.uplaod-wrap').find('.path').text(this.value.replace(/C:\\fakepath\\/i, ''))
     });
 });
