@@ -1,0 +1,126 @@
+@use "../abstracts/abstracts_all" as *;
+
+/* Main Section
+===========================*/
+.main_section {
+  background-color: rgba($third_color, 0.1);
+  width: 100%;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+  background: url(../images/home_bc.jpg) center no-repeat;
+  background-size: cover;
+  .carousel {
+    padding: 140px 0;
+    @include mediaquery(max, desktop) {
+      padding: 50px;
+    }
+
+    @include mediaquery(max, mobile) {
+      padding: 50px 0;
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: none;
+      }
+    }
+  }
+}
+
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  @include border_radius(50%);
+  background-color: $second_color;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 1;
+  span {
+    background: none;
+    height: 100%;
+    display: block;
+    line-height: 50px;
+  }
+  &:hover {
+    color: #fff;
+    background-color: $main_color;
+  }
+}
+.carousel-control-prev {
+  left: 15px;
+}
+.carousel-control-next {
+  right: 15px;
+}
+.intro_cont {
+  position: relative;
+  z-index: 999;
+  max-width: 920px;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  h2 {
+    font-size: 48px;
+    text-transform: uppercase;
+    font-weight: $weight_xbold;
+    letter-spacing: 3px;
+    margin: 0;
+    [dir="rtl"] & {
+      letter-spacing: 0;
+    }
+  }
+  h3 {
+    font-weight: $weight_bold;
+    font-size: 32px;
+    margin: 20px auto 25px;
+    max-width: 760px;
+  }
+  .link {
+    font-size: 20px;
+    line-height: 55px;
+    padding: 0 30px;
+    margin-bottom: 15px;
+  }
+  @include mediaquery(max, desktop) {
+    h2 {
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+  }
+  @include mediaquery(max, tablet) {
+    h2 {
+      font-size: 28px;
+    }
+    h3 {
+      font-weight: $weight_reg;
+      font-size: 20px;
+    }
+    .link {
+      font-size: 16px;
+      line-height: 45px;
+      padding: 0 20px;
+    }
+  }
+  @include mediaquery(max, mobile) {
+    h2 {
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 16px;
+      margin: 15px auto;
+    }
+    .link {
+      font-size: 14px;
+      line-height: 40px;
+      padding: 0 15px;
+    }
+  }
+}

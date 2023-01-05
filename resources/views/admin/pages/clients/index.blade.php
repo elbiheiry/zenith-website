@@ -27,7 +27,7 @@
                                 <label>image </label>
                                 <input type="file" class="jfilestyle" name="image" />
                             </div>
-                            <span class="text-danger">Image dimensions should be : 400 * 400
+                            <span class="text-danger">Image dimensions should be : 360 * 190
                             </span>
                         </div>
                     </div>

@@ -46,7 +46,7 @@
                                 <input type="text" class="form-control font_ar" name="username_ar" />
                             </div>
                         </div>
-                        <div class="col-6">
+                        {{-- <div class="col-6">
                             <div class="form-group">
                                 <label> Location (EN)</label>
                                 <input type="text" class="form-control" name="location_en" />
@@ -69,7 +69,7 @@
                                 <label> Box (AR)</label>
                                 <input type="text" class="form-control font_ar" name="box_ar" />
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-6">
                             <div class="form-group">
                                 <label> Email</label>
@@ -82,12 +82,12 @@
                                 <input type="text" class="form-control" name="phone">
                             </div>
                         </div>
-                        <div class="col-6">
+                        {{-- <div class="col-6">
                             <div class="form-group">
                                 <label> Fax</label>
                                 <input type="text" class="form-control" name="fax">
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-12">
                         <button class="custom-btn" type="submit">

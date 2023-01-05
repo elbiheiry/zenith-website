@@ -17,9 +17,9 @@ class PartnerRepository
         $this->model = $model;
     }
 
-    public function list(): array
+    public function list($take = null): array
     {
-        $objects = $this->model->all()->sortByDesc('id');
+        $objects = $this->model->all()->sortByDesc('id')->take($take);
 
         return PartnerResource::collection($objects)->response()->getData(true);
     }
@@ -34,7 +34,7 @@ class PartnerRepository
     public function create($data)
     {
         $data = [
-            'image' => $this->image_manipulate($data['image'] , 'partners' , 180 , 70)
+            'image' => $this->image_manipulate($data['image'] , 'partners' , 280 , 100)
         ];
 
         $this->model->create($data);
@@ -46,7 +46,7 @@ class PartnerRepository
 
         if ($request['image']) {
             $this->image_delete($partner->image , 'partners');
-            $data['image'] = $this->image_manipulate($request['image'] , 'partners' , 180 , 70);
+            $data['image'] = $this->image_manipulate($request['image'] , 'partners' , 280 , 100);
         }
 
         $partner->update($data);

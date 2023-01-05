@@ -8,7 +8,8 @@ use App\Http\Controllers\Admin\{
     PartnerController,
     ProfileController,
     RegionController,
-    SettingController
+    SettingController,
+    SliderController
 };
 use Illuminate\Support\Facades\{Auth , Route};
 
@@ -54,6 +55,16 @@ Route::middleware('auth:web')->group(function () {
         Route::delete('/destroy/{message}' , [MessageController::class , 'destroy'])->name('delete');
     });
 
+    /**
+     * slideshow routes
+     */
+    Route::prefix('home/slideshow')->name('sliders.')->controller(SliderController::class)->group(function (){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
 
     /**
      * partners routes

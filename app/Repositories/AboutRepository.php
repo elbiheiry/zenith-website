@@ -47,22 +47,22 @@ class AboutRepository
 
         if ($request['image1']) {
             $this->image_delete($about->image1 , 'about');
-            $data['image1'] = $this->image_manipulate($request['image1'] , 'about' , 570 , 570);
+            $data['image1'] = $this->image_manipulate($request['image1'] , 'about' , 650 , 350);
         }
 
         if ($request['image2']) {
             $this->image_delete($about->image2 , 'about');
-            $data['image2'] = $this->image_manipulate($request['image2'] , 'about' , 570 , 570);
+            $data['image2'] = $this->image_manipulate($request['image2'] , 'about' , 650 , 350);
         }
 
         if ($request['image3']) {
             $this->image_delete($about->image3 , 'about');
-            $data['image3'] = $this->image_manipulate($request['image3'] , 'about' , 570 , 570);
+            $data['image3'] = $this->image_manipulate($request['image3'] , 'about' , 650 , 350);
         }
 
         if ($request['image4']) {
             $this->image_delete($about->image4 , 'about');
-            $data['image4'] = $this->image_manipulate($request['image4'] , 'about' , 570 , 570);
+            $data['image4'] = $this->image_manipulate($request['image4'] , 'about' , 650 , 350);
         }
 
         $about->update($data);

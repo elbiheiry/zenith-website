@@ -17,9 +17,9 @@ class ClientRepository
         $this->model = $model;
     }
 
-    public function list(): array
+    public function list($take = null): array
     {
-        $objects = $this->model->all();
+        $objects = $this->model->all()->sortByDesc('id')->take($take);
 
         return ClientResource::collection($objects)->response()->getData(true);
     }
@@ -49,7 +49,7 @@ class ClientRepository
                 'title' => $data['title_ar'],
                 'description' => $data['description_ar']
             ],
-            'image' => $this->image_manipulate($data['image'] , 'clients' , 400 , 400)
+            'image' => $this->image_manipulate($data['image'] , 'clients' , 360 , 190)
         ];
 
         $this->model->create($data);
@@ -71,7 +71,7 @@ class ClientRepository
 
         if ($request['image']) {
             $this->image_delete($member->image , 'clients');
-            $data['image'] = $this->image_manipulate($request['image'] , 'clients' , 400 , 400);
+            $data['image'] = $this->image_manipulate($request['image'] , 'clients' , 360 , 190);
         }
         
         $member->update($data);

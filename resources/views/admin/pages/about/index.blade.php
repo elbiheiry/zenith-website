@@ -33,7 +33,7 @@
                                 <label>About us Image </label>
                                 <input type="file" class="jfilestyle" name="image1" />
                             </div>
-                            <span class="text-danger">Image dimensions should be : 570 * 570
+                            <span class="text-danger">Image dimensions should be : 650 * 350
                             </span>
                         </div>
                         <div class="col-6">
@@ -81,7 +81,7 @@
                                 <label>Our Mission Image </label>
                                 <input type="file" class="jfilestyle" name="image2" />
                             </div>
-                            <span class="text-danger">Image dimensions should be : 570 * 570
+                            <span class="text-danger">Image dimensions should be : 650 * 350
                             </span>
                         </div>
                         <div class="col-6">
@@ -107,7 +107,7 @@
                                 <label>Our Vision Image </label>
                                 <input type="file" class="jfilestyle" name="image3" />
                             </div>
-                            <span class="text-danger">Image dimensions should be : 570 * 570
+                            <span class="text-danger">Image dimensions should be : 650 * 350
                             </span>
                         </div>
                         <div class="col-6">
@@ -133,7 +133,7 @@
                                 <label>Our principles Image </label>
                                 <input type="file" class="jfilestyle" name="image4" />
                             </div>
-                            <span class="text-danger">Image dimensions should be : 570 * 570
+                            <span class="text-danger">Image dimensions should be : 650 * 350
                             </span>
                         </div>
                         <div class="col-6">

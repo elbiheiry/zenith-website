@@ -51,7 +51,7 @@
                                     value="{{ $region['username_ar'] }}" />
                             </div>
                         </div>
-                        <div class="col-6">
+                        {{-- <div class="col-6">
                             <div class="form-group">
                                 <label> Location (EN)</label>
                                 <input type="text" class="form-control" name="location_en"
@@ -77,7 +77,7 @@
                                 <input type="text" class="form-control font_ar" name="box_ar"
                                     value="{{ $region['box_ar'] }}" />
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-6">
                             <div class="form-group">
                                 <label> Email</label>
@@ -90,12 +90,12 @@
                                 <input type="text" class="form-control" name="phone" value="{{ $region['phone'] }}">
                             </div>
                         </div>
-                        <div class="col-6">
+                        {{-- <div class="col-6">
                             <div class="form-group">
                                 <label> Fax</label>
                                 <input type="text" class="form-control" name="fax" value="{{ $region['fax'] }}">
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-12">
                         <button class="custom-btn" type="submit">

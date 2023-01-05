@@ -19,6 +19,21 @@
                 - Site settings
             </a>
         </li>
+        <li
+            class="sub-menu {{ request()->routeIs('admin.sliders.index') || request()->routeIs('admin.sliders.edit') ? 'active' : '' }}">
+            <a rel="noreferrer" href="javascript:void(0);">
+                - Home page
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul>
+                <li
+                    class="{{ request()->routeIs('admin.sliders.index') || request()->routeIs('admin.sliders.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.sliders.index') }}">
+                        - Slideshow
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li class="{{ request()->routeIs('admin.about.index') ? 'active' : '' }}">
             <a href="{{ route('admin.about.index') }}">
                 - About us

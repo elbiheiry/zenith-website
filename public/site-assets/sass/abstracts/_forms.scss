@@ -1,0 +1,43 @@
+@use "abstracts_all" as *;
+
+/* Form
+=======================*/
+.form-group {
+  margin: 15px auto;
+}
+label {
+  font-weight: $weight_bold;
+  font-size: 16px;
+  margin: 10px 0;
+  letter-spacing: 1px;
+  [dir="rtl"] & {
+    letter-spacing: 0;
+    font-size: 14px;
+  }
+}
+.form-control {
+  padding: 0 15px;
+  font-size: 16px;
+  line-height: 50px;
+  height: 50px;
+  font-weight: $weight_bold;
+  color: $main_color;
+  border: 1px solid #e7e7e7;
+  letter-spacing: 0px;
+  @include box_no_shadow;
+  @include border_radius(5px);
+  [dir="rtl"] & {
+    font-size: 14px;
+  }
+  &:hover,
+  &:focus {
+    border: 1px solid #e7e7e7;
+    @include box_no_shadow;
+  }
+}
+textarea.form-control {
+  resize: none;
+  height: 110px;
+  padding: 10px 15px;
+  @include border_radius(5px);
+}

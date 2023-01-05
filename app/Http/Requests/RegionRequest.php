@@ -43,13 +43,13 @@ class RegionRequest extends FormRequest
             'name_ar' => ['required' , 'string' , 'max:255'],
             'username_en' => ['required' , 'string' , 'max:255'],
             'username_ar' => ['required' , 'string' , 'max:255'],
-            'location_en' => ['required' , 'string' , 'max:255'],
-            'location_ar' => ['required' , 'string' , 'max:255'],
-            'box_en' => ['required' , 'string' , 'max:255'],
-            'box_ar' => ['required' , 'string' , 'max:255'],
+            // 'location_en' => ['required' , 'string' , 'max:255'],
+            // 'location_ar' => ['required' , 'string' , 'max:255'],
+            // 'box_en' => ['required' , 'string' , 'max:255'],
+            // 'box_ar' => ['required' , 'string' , 'max:255'],
             'email' => ['required' , 'string' , 'email' , 'max:255'],
             'phone' => ['required'],
-            'fax' => ['required']
+            // 'fax' => ['required']
         ];
     }
 

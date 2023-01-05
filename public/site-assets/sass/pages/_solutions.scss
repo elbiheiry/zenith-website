@@ -1,0 +1,131 @@
+@use "../abstracts/abstracts_all" as *;
+
+/* solutions
+===========================*/
+.block_item {
+  text-align: center;
+  background-color: #fff;
+  padding: 25px;
+  @include border_radius(5px);
+  margin: 15px auto;
+  img {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    @include border_radius(50%);
+    margin-bottom: 25px;
+  }
+  h3 {
+    color: $main_color;
+    font-size: 24px;
+    font-weight: $weight_bold;
+    margin: 0;
+  }
+}
+.logos_wrap {
+  text-align: center;
+  background-color: #fff;
+  padding: 45px;
+  @include border_radius(5px);
+  margin: 25px auto;
+
+  p {
+    color: $main_color;
+    font-size: 24px;
+    font-weight: $weight_bold;
+    margin: 0 0 25px;
+  }
+  @include mediaquery(max, desktop) {
+    padding: 15px;
+  }
+  @include mediaquery(max, tablet) {
+    p {
+      font-size: 18px;
+    }
+    ul {
+      flex-wrap: wrap;
+      justify-content: center !important;
+    }
+    img {
+      min-width: 25%;
+    }
+  }
+}
+.sol_feat {
+  margin-bottom: 25px;
+  text-align: center;
+  background-color: #fff;
+  padding: 25px;
+  @include border_radius(5px);
+  min-height: 232px;
+  @include flex(column, center, center);
+  img {
+    margin: 0 auto 15px;
+  }
+  h3 {
+    color: $main_color;
+    font-size: 24px;
+    font-weight: $weight_bold;
+    margin: 0 0 15px;
+  }
+  p {
+    line-height: 20px;
+    font-size: 16px;
+    margin: 0;
+  }
+}
+.img_rad {
+  @include border_radius(15px);
+  margin-bottom: 25px;
+}
+.text_p {
+  line-height: 20px;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+.jamf_banner {
+  background: url(../images/solutions/jamf.png) no-repeat center;
+  background-size: cover;
+  text-align: start;
+  padding-bottom: 210px;
+  &::before {
+    opacity: 3%;
+  }
+  img {
+    width: 290px;
+    @include border_radius(10px);
+    overflow: hidden;
+    padding: 5px;
+    background-color: #fff;
+    margin: 0 auto 25px;
+  }
+}
+.help {
+  max-width: 960px;
+  margin: -140px auto 0;
+  @include border_radius(10px);
+  padding: 50px 25px 25px;
+  background-color: #fff;
+  text-align: center;
+  .form-control {
+    margin-bottom: 15px;
+  }
+}
+.beat_item {
+  margin: 25px auto;
+  img {
+    display: inline-block;
+    margin-inline-end: 10px;
+  }
+  h3 {
+    color: $main_color;
+    font-size: 24px;
+    font-weight: $weight_bold;
+    margin: 0 0 15px;
+  }
+  p {
+    line-height: 20px;
+    font-size: 16px;
+    margin: 0;
+  }
+}

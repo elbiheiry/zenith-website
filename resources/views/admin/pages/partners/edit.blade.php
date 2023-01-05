@@ -16,7 +16,7 @@
                         <span class='button'>Select File</span>
                     </div>
                 </div>
-                <span class="text-danger">Please note that image dimensions should be : 180 * 70
+                <span class="text-danger">Please note that image dimensions should be : 280 * 100
                 </span>
             </div>
         </div>
