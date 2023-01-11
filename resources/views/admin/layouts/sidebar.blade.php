@@ -36,6 +36,27 @@
         </li>
 
         <li
+            class="sub-menu {{ request()->routeIs('admin.jamf.solution.index') || request()->routeIs('admin.jamf.solution.edit') || request()->routeIs('admin.jamf.content.index') || request()->routeIs('admin.jamf.content.edit') ? 'active' : '' }}">
+            <a rel="noreferrer" href="javascript:void(0);">
+                - Jamf education solutions
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul>
+                <li
+                    class="{{ request()->routeIs('admin.jamf.content.index') || request()->routeIs('admin.jamf.content.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.jamf.content.index') }}">
+                        - content
+                    </a>
+                </li>
+                <li
+                    class="{{ request()->routeIs('admin.jamf.solution.index') || request()->routeIs('admin.jamf.solution.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.jamf.solution.index') }}">
+                        - solutions
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li
             class="sub-menu {{ request()->routeIs('admin.apple.index') || request()->routeIs('admin.apple.edit') || request()->routeIs('admin.ipad.index') || request()->routeIs('admin.ipad.edit') || request()->routeIs('admin.mac.index') || request()->routeIs('admin.mac.edit') ? 'active' : '' }}">
             <a rel="noreferrer" href="javascript:void(0);">
                 - Apple solutions

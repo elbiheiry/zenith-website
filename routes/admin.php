@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\{
     ClientController,
     DashboardController,
     IpadController,
+    JamfController,
+    JamfSolutionController,
     MacController,
     MessageController,
     PartnerController,
@@ -113,6 +115,29 @@ Route::middleware('auth:web')->group(function () {
         Route::get('/edit/{id}' , 'edit')->name('edit');
         Route::put('/update/{id}' , 'update')->name('update');
         Route::put('/update2' , 'update2')->name('update2');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * jamf-education-solution routes
+     */
+    Route::prefix('jamf-education-solution/content')->name('jamf.content.')->controller(JamfController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
+        Route::put('/update2' , 'update2')->name('update2');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * solutions routes
+     */
+    Route::prefix('jamf-education-solution/solutions')->name('jamf.solution.')->controller(JamfSolutionController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
         Route::delete('/delete/{id}' , 'destroy')->name('delete');
     });
 
