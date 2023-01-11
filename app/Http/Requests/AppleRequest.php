@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ClientRequest extends FormRequest
+class AppleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -40,8 +40,11 @@ class ClientRequest extends FormRequest
     protected function onCreate() {
         return [
             'image' => ['required' , 'image' , 'max:2048', 'mimes:png,jpg,jpeg'],
+            'link' => ['required' , 'url'],
             'title_en' => ['required' , 'string' , 'max:255'],
             'title_ar' => ['required' , 'string' , 'max:255'],
+            'subtitle_en' => ['required' , 'string' , 'max:255'],
+            'subtitle_ar' => ['required' , 'string' , 'max:255'],
             'description_en' => ['required' ],
             'description_ar' => ['required' ],
         ];
@@ -55,8 +58,11 @@ class ClientRequest extends FormRequest
     protected function onUpdate() {
         return [
             'image' => ['image' , 'max:2048', 'mimes:png,jpg,jpeg'],
+            'link' => ['required' , 'url'],
             'title_en' => ['required' , 'string' , 'max:255'],
             'title_ar' => ['required' , 'string' , 'max:255'],
+            'subtitle_en' => ['required' , 'string' , 'max:255'],
+            'subtitle_ar' => ['required' , 'string' , 'max:255'],
             'description_en' => ['required' ],
             'description_ar' => ['required' ],
         ];
@@ -76,8 +82,11 @@ class ClientRequest extends FormRequest
     {
         return [
             'image' => 'Image',
+            'link' => 'Button Link',
             'title_en' => 'title (EN)',
             'title_ar' => 'title (AR)',
+            'subtitle_en' => 'subtitle (EN)',
+            'subtitle_ar' => 'subtitle (AR)',
             'description_en' => 'description (EN)',
             'description_ar' => 'description (AR)',
         ];

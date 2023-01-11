@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ClientRequest extends FormRequest
+class MacRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,37 +31,6 @@ class ClientRequest extends FormRequest
         throw new HttpResponseException(response()->json($validator->errors()->first(), 400));
     }
 
-
-    /**
-     * on creation set validation rules 
-     *
-     * @return array
-     */
-    protected function onCreate() {
-        return [
-            'image' => ['required' , 'image' , 'max:2048', 'mimes:png,jpg,jpeg'],
-            'title_en' => ['required' , 'string' , 'max:255'],
-            'title_ar' => ['required' , 'string' , 'max:255'],
-            'description_en' => ['required' ],
-            'description_ar' => ['required' ],
-        ];
-    }
-
-    /**
-     * on update set validation rules 
-     *
-     * @return array
-     */
-    protected function onUpdate() {
-        return [
-            'image' => ['image' , 'max:2048', 'mimes:png,jpg,jpeg'],
-            'title_en' => ['required' , 'string' , 'max:255'],
-            'title_ar' => ['required' , 'string' , 'max:255'],
-            'description_en' => ['required' ],
-            'description_ar' => ['required' ],
-        ];
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -69,13 +38,19 @@ class ClientRequest extends FormRequest
      */
     public function rules()
     {
-        return $this->isMethod('put') ? $this->onUpdate() : $this->onCreate();
+        return [
+            // 'image' => ['image' , 'max:2048', 'mimes:png,jpg,jpeg'],
+            'title_en' => ['required' , 'string' , 'max:255'],
+            'title_ar' => ['required' , 'string' , 'max:255'],
+            'description_en' => ['required' ],
+            'description_ar' => ['required' ],
+        ];
     }
 
     public function attributes()
     {
         return [
-            'image' => 'Image',
+            // 'image' => 'Image',
             'title_en' => 'title (EN)',
             'title_ar' => 'title (AR)',
             'description_en' => 'description (EN)',

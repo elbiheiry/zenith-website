@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ClientRequest extends FormRequest
+class WhyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -42,8 +42,8 @@ class ClientRequest extends FormRequest
             'image' => ['required' , 'image' , 'max:2048', 'mimes:png,jpg,jpeg'],
             'title_en' => ['required' , 'string' , 'max:255'],
             'title_ar' => ['required' , 'string' , 'max:255'],
-            'description_en' => ['required' ],
-            'description_ar' => ['required' ],
+            'description_en' => ['required'],
+            'description_ar' => ['required'],
         ];
     }
 
@@ -57,8 +57,8 @@ class ClientRequest extends FormRequest
             'image' => ['image' , 'max:2048', 'mimes:png,jpg,jpeg'],
             'title_en' => ['required' , 'string' , 'max:255'],
             'title_ar' => ['required' , 'string' , 'max:255'],
-            'description_en' => ['required' ],
-            'description_ar' => ['required' ],
+            'description_en' => ['required'],
+            'description_ar' => ['required'],
         ];
     }
 

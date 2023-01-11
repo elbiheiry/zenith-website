@@ -34,6 +34,46 @@
                 </li>
             </ul>
         </li>
+
+        <li
+            class="sub-menu {{ request()->routeIs('admin.apple.index') || request()->routeIs('admin.apple.edit') || request()->routeIs('admin.ipad.index') || request()->routeIs('admin.ipad.edit') || request()->routeIs('admin.mac.index') || request()->routeIs('admin.mac.edit') ? 'active' : '' }}">
+            <a rel="noreferrer" href="javascript:void(0);">
+                - Apple solutions
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul>
+                <li
+                    class="{{ request()->routeIs('admin.apple.index') || request()->routeIs('admin.apple.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.apple.index') }}">
+                        - Apple
+                    </a>
+                </li>
+                <li
+                    class="{{ request()->routeIs('admin.ipad.index') || request()->routeIs('admin.ipad.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.ipad.index') }}">
+                        - Ipad in education
+                    </a>
+                </li>
+                <li
+                    class="{{ request()->routeIs('admin.mac.index') || request()->routeIs('admin.mac.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.mac.index') }}">
+                        - Mac in education
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li
+            class="{{ request()->routeIs('admin.why.index') || request()->routeIs('admin.why.edit') ? 'active' : '' }}">
+            <a href="{{ route('admin.why.index') }}">
+                - Why zenith arabia
+            </a>
+        </li>
+        <li
+            class="{{ request()->routeIs('admin.processes.index') || request()->routeIs('admin.processes.edit') ? 'active' : '' }}">
+            <a href="{{ route('admin.processes.index') }}">
+                - Our process
+            </a>
+        </li>
         <li class="{{ request()->routeIs('admin.about.index') ? 'active' : '' }}">
             <a href="{{ route('admin.about.index') }}">
                 - About us
@@ -50,6 +90,7 @@
                 - Our clients
             </a>
         </li>
+
         <li
             class="{{ request()->routeIs('admin.regions.index') || request()->routeIs('admin.regions.edit') ? 'active' : '' }}">
             <a href="{{ route('admin.regions.index') }}">

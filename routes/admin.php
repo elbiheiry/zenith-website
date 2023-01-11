@@ -2,14 +2,19 @@
 
 use App\Http\Controllers\Admin\{
     AboutController,
+    AppleController,
     ClientController,
     DashboardController,
+    IpadController,
+    MacController,
     MessageController,
     PartnerController,
+    ProcessController,
     ProfileController,
     RegionController,
     SettingController,
-    SliderController
+    SliderController,
+    WhyController
 };
 use Illuminate\Support\Facades\{Auth , Route};
 
@@ -81,6 +86,64 @@ Route::middleware('auth:web')->group(function () {
      * our-clients routes
      */
     Route::prefix('our-clients')->name('clients.')->controller(ClientController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * our-process routes
+     */
+    Route::prefix('our-process')->name('processes.')->controller(ProcessController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * apple routes
+     */
+    Route::prefix('apple')->name('apple.')->controller(AppleController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
+        Route::put('/update2' , 'update2')->name('update2');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * ipad-in-education routes
+     */
+    Route::prefix('ipad-in-education')->name('ipad.')->controller(IpadController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
+        Route::put('/update2' , 'update2')->name('update2');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * mac-in-education routes
+     */
+    Route::prefix('mac-in-education')->name('mac.')->controller(MacController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
+        Route::put('/update2' , 'update2')->name('update2');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * why-zenith-arabia routes
+     */
+    Route::prefix('why-zenith-arabia')->name('why.')->controller(WhyController::class)->group(function(){
         Route::get('/' , 'index')->name('index');
         Route::post('/store' , 'store')->name('store');
         Route::get('/edit/{id}' , 'edit')->name('edit');
