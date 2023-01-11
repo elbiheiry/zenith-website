@@ -41,7 +41,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <form class="help">
+                    <form class="help contact_form" method="post" action="{{ route('site.apple.store') }}">
+                        @csrf
                         <div class="section_title text-center">
                             <h3>{{ locale() == 'en' ? 'Write to our Experts' : 'تواصل مع خبرائنا' }}</h3>
                             <p>
@@ -50,23 +51,23 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control" name="name"
                                     placeholder="{{ locale() == 'en' ? 'Name' : 'الإسم' }}" />
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control" name="school"
                                     placeholder="{{ locale() == 'en' ? 'School Name' : 'إسم المدرسة' }}" />
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control"
+                                <input type="email" class="form-control" name="email"
                                     placeholder="{{ locale() == 'en' ? 'Email Address' : 'البريد الإلكتروني' }}" />
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control" name="phone"
                                     placeholder="{{ locale() == 'en' ? 'Mobile Number' : 'رقم الهاتف' }} " />
                             </div>
                             <div class="col-12">
-                                <textarea placeholder="{{ locale() == 'en' ? 'Your Message' : 'رسالتك' }}" class="form-control"></textarea>
+                                <textarea name="message" placeholder="{{ locale() == 'en' ? 'Your Message' : 'رسالتك' }}" class="form-control"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="link">
@@ -169,3 +170,44 @@
         </div>
     </section>
 @endsection
+@push('js')
+    <script>
+        $(document).on('submit', '.contact_form', function() {
+            var form = $(this);
+            var url = form.attr('action');
+            var formData = new FormData(form[0]);
+            form.find(":submit").attr('disabled', true).html(
+                "<span>{{ locale() == 'en' ? 'Please wait' : 'برجاء الإنتظار' }} <i class='fa fa-long-arrow-alt-{{ locale() == 'en' ? 'right' : 'left' }}'></i></span>"
+            );
+
+            $.ajax({
+                url: url,
+                method: 'POST',
+                dataType: 'json',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(response) {
+                    notification("success", response, "fas fa-check");
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+                },
+                error: function(jqXHR) {
+                    var response = $.parseJSON(jqXHR.responseText);
+                    notification("danger", response, "fas fa-times");
+                    form.find(":submit").attr('disabled', false).html(
+                        "<span>{{ locale() == 'en' ? 'Send Message' : 'إرسل الرسالة' }} <i class='fa fa-long-arrow-alt-{{ locale() == 'en' ? 'right' : 'left' }}'></i></span>"
+                    );
+                }
+            });
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('input[name="_token"]').val()
+                }
+            });
+            return false;
+        });
+    </script>
+@endpush
