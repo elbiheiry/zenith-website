@@ -39,6 +39,13 @@ class SolutionRepository
         return (new SolutionResource($member))->resolve();
     }
 
+    public function showBySlug($slu)
+    {
+        $member = $this->model->whereSlug($slu)->firstOrFail();
+
+        return (new SolutionResource($member))->resolve();
+    }
+
     public function create($data)
     {
         $data = [

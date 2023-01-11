@@ -25,13 +25,9 @@
             <div class="row position-relative">
                 <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="30">
                     <img src="{{ surl('images/partners/Apple-Authorised.png') }}" alt="" />
-                    <h3>Manage and secure Apple in Education.</h3>
+                    <h3>{{ $content['title_' . locale()] }}</h3>
                     <p>
-                        Whether you’re offering a 1-to-1 iPad initiative, shared-device
-                        model or searching for an alternative to pen and paper assessment
-                        formats, Jamf helps schools engage with students in new ways and
-                        deliver an active learning environment with iPad, Mac and Apple
-                        TV.
+                        {{ $content['description_' . locale()] }}
                     </p>
                 </div>
             </div>
@@ -47,30 +43,34 @@
                 <div class="col-12">
                     <form class="help">
                         <div class="section_title text-center">
-                            <h3>Write to our Experts</h3>
+                            <h3>{{ locale() == 'en' ? 'Write to our Experts' : 'تواصل مع خبرائنا' }}</h3>
                             <p>
-                                Want to know more Information on jamf solutions for education?
+                                {{ locale() == 'en' ? 'Want to know more Information on jamf solutions for education?' : 'هل تريد معرفة المزيد من المعلومات حول حلول jamf للتعليم؟' }}
                             </p>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" placeholder="Name" />
+                                <input type="text" class="form-control"
+                                    placeholder="{{ locale() == 'en' ? 'Name' : 'الإسم' }}" />
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" placeholder="School Name" />
+                                <input type="text" class="form-control"
+                                    placeholder="{{ locale() == 'en' ? 'School Name' : 'إسم المدرسة' }}" />
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" placeholder="Email Address" />
+                                <input type="text" class="form-control"
+                                    placeholder="{{ locale() == 'en' ? 'Email Address' : 'البريد الإلكتروني' }}" />
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" placeholder="Mobile Number " />
+                                <input type="text" class="form-control"
+                                    placeholder="{{ locale() == 'en' ? 'Mobile Number' : 'رقم الهاتف' }} " />
                             </div>
                             <div class="col-12">
-                                <textarea placeholder="Your Message" class="form-control"></textarea>
+                                <textarea placeholder="{{ locale() == 'en' ? 'Your Message' : 'رسالتك' }}" class="form-control"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="link">
-                                    <span> Send Messgae </span>
+                                    <span> {{ locale() == 'en' ? 'Send Messgae' : 'إرسل رسالتك' }} </span>
                                 </button>
                             </div>
                         </div>
@@ -87,93 +87,32 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section_title text-center">
-                        <h3>We are the best</h3>
+                        <h3>{{ locale() == 'en' ? 'We are the best' : 'نحن الأفضل' }}</h3>
                         <p>
-                            Empower your Apple users and IT team to succeed with Apple. All
-                            the MDM capabilities you need in one package.
+                            @if (locale() == 'en')
+                                Empower your Apple users and IT team to succeed with Apple. All
+                                the MDM capabilities you need in one package.
+                            @else
+                                قم بتمكين مستخدمي Apple وفريق تكنولوجيا المعلومات لديك من النجاح مع Apple. الجميع
+                                إمكانيات MDM التي تحتاجها في حزمة واحدة.
+                            @endif
+
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="beat_item">
-                        <h3>
-                            <img src="{{ surl('images/solutions/best1.png') }}" alt="" />
-                            Deployment
-                        </h3>
-                        <p>
-                            Provide your end users with a fully customizable onboarding
-                            experience. Provision and deploy Mac, iPad, iPhone or Apple TV
-                            devices seamlessly with the customized workflows.
-                        </p>
+                @foreach ($steps['data'] as $step)
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="beat_item">
+                            <h3>
+                                <img src="{{ $step['image'] }}" alt="" />
+                                {{ $step['title_' . locale()] }}
+                            </h3>
+                            <p>
+                                {{ $step['description_' . locale()] }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="beat_item">
-                        <h3>
-                            <img src="{{ surl('images/solutions/best2.png') }}" alt="" /> Device
-                            Management
-                        </h3>
-                        <p>
-                            Configuration profiles, policies and scripts direct your Apple
-                            devices to function exactly as needed. Surpass simple
-                            troubleshooting by automating management with our patented Smart
-                            Groups technology
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="beat_item">
-                        <h3>
-                            <img src="{{ surl('images/solutions/best3.png') }}" alt="" /> App
-                            Management
-                        </h3>
-                        <p>
-                            Streamline app management with bulk purchasing and deployment.
-                            Jamf Pro integrates with Apple Business Manager and Apple School
-                            Manager, allowing you to assign apps to users or devices
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="beat_item">
-                        <h3>
-                            <img src="{{ surl('images/solutions/best4.png') }}" alt="" />Inventory
-                        </h3>
-                        <p>
-                            Automatically collect user, hardware, software and security
-                            device data or customize inventory specifications. Dynamic Smart
-                            Groups keep track of everything for you, including software
-                            versions and warranty expiration.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="beat_item">
-                        <h3>
-                            <img src="{{ surl('images/solutions/best5.png') }}" alt="" /> Self
-                            Service
-                        </h3>
-                        <p>
-                            Give your users access to a one-stop shop for trusted apps,
-                            company resources and shortcuts for troubleshooting tasks like
-                            password resets. Jamf Self Service — a fully customizable,
-                            ondemand app store that you control
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="beat_item">
-                        <h3>
-                            <img src="{{ surl('images/solutions/best6.png') }}" alt="" /> Security
-                        </h3>
-                        <p>
-                            Secure Apple devices by leveraging native security features.
-                            Manage device settings and configurations, restrict malicious
-                            software and patch your Apple devices without user interaction
-                            or physical access to the device.
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -182,71 +121,50 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section_title text-center">
-                        <h3>Jamf Education Solutions</h3>
+                        <h3>{{ locale() == 'en' ? 'Jamf Education Solutions' : 'حلول التعليم' }}</h3>
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about_cont p-0 mid">
-                        <img src="{{ surl('images/solutions/jamf_logo.png') }}" alt="" class="about_icon" />
-                        <h2>Management Solution for Schools​</h2>
-                        <p>
-                            The ideal solution for teachers or instructional technologists.
-                            Jamf School empowers educators to manage devices from the
-                            classroom. Teacher, Parent and Student apps are included in this
-                            solution.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about_img h_auto">
-                        <img src="{{ surl('images/solutions/jamf_about1.png') }}" alt="" />
-                    </div>
-                </div>
-            </div>
-            <!--End Row-->
+            @foreach ($solutions['data'] as $index => $solution)
+                <div class="row align-items-center">
+                    @if ($index % 2 == 0)
+                        <div class="col-lg-6">
+                            <div class="about_cont p-0 mid">
+                                <img src="{{ surl('images/solutions/jamf_logo.png') }}" alt=""
+                                    class="about_icon" />
+                                <h2>{{ $solution['title_' . locale()] }}</h2>
+                                <p>
+                                    {{ $solution['description_' . locale()] }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about_img h_auto">
+                                <img src="{{ $solution['image'] }}" alt="" />
+                            </div>
+                        </div>
+                    @else
+                        <div class="col-lg-6">
+                            <div class="about_img h_auto">
+                                <img src="{{ $solution['image'] }}" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about_cont p-0 mid">
+                                <img src="{{ surl('images/solutions/jamf_logo.png') }}" alt=""
+                                    class="about_icon" />
+                                <h2>{{ $solution['title_' . locale()] }}</h2>
+                                <p>
+                                    {{ $solution['description_' . locale()] }}
+                                </p>
+                            </div>
+                        </div>
+                    @endif
 
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about_img h_auto">
-                        <img src="{{ surl('images/solutions/jamf_about1.png') }}" alt="" />
-                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about_cont p-0 mid">
-                        <img src="{{ surl('images/solutions/jamf_logo.png') }}" alt="" class="about_icon" />
-                        <h2>Management Solution for Districts​</h2>
-                        <p>
-                            Built for IT directors, managers or administrators. Jamf Pro
-                            offers a wide variety of Apple management features for Mac,
-                            iPad, iPhone and Apple TV.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--End Row-->
+                <!--End Row-->
+            @endforeach
 
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about_cont p-0 mid">
-                        <img src="{{ surl('images/solutions/jamf_logo.png') }}" alt="" class="about_icon" />
-                        <h2>Jamf Safe Internet</h2>
-                        <p>
-                            Jamf Safe Internet is a purpose-built content filtering and
-                            network threat protection solution to help schools deliver a
-                            safe and robust online experience for students — all via a
-                            seamless, simple deployment experience that prioritises student
-                            privacy.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about_img h_auto">
-                        <img src="{{ surl('images/solutions/jamf_about3.png') }}" alt="" />
-                    </div>
-                </div>
-            </div>
             <!--End Row-->
         </div>
     </section>

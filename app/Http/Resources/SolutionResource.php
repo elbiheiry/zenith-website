@@ -25,7 +25,8 @@ class SolutionResource extends JsonResource
             'title_en' => $this->translate('en')->title,
             'title_ar' => $this->translate('ar')->title,
             'brief_en' => $this->translate('en')->brief,
-            'brief_ar' => $this->translate('ar')->brief
+            'brief_ar' => $this->translate('ar')->brief,
+            'contents' => SContentResource::collection($this->contents)->response()->getData(true)
         ];
     }
 }

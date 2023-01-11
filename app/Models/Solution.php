@@ -33,6 +33,11 @@ class Solution extends Model implements TranslatableContract
         ];
     }
 
+    public function contents()
+    {
+        return $this->hasMany(SContent::class);
+    }
+
     public function delete()
     {
         $this->image_delete($this->image , 'solutions');

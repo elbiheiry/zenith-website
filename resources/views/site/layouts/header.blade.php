@@ -23,10 +23,12 @@
                             {{ locale() == 'en' ? 'Home' : 'الرئيسية' }} </a>
                     </li>
                     <li class="dropdown">
-                        <a href="#"
-                            class="{{ request()->routeIs('site.it') || request()->routeIs('site.jamf') ? 'active' : '' }}"
-                            data-toggle="dropdown" aria-expanded="true">
+                        <a href="{{ route('site.solutions') }}"
+                            class="{{ request()->routeIs('site.solutions') || request()->routeIs('site.solution') || request()->routeIs('site.it') || request()->routeIs('site.jamf') ? 'active' : '' }}">
                             {{ locale() == 'en' ? 'Solutions' : 'حلولنا' }} <i class="fa fa-angle-down"></i>
+                        </a>
+                        <a class="extra" href="#" data-toggle="dropdown" aria-expanded="true">
+                            <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -40,19 +42,21 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#"
-                            class="{{ request()->routeIs('site.story') ? 'active' : '' }}"
-                            data-toggle="dropdown" aria-expanded="true">
+                        <a href="{{ route('site.apple') }}"
+                            class="{{ request()->routeIs('site.apple') || request()->routeIs('site.ipad') || request()->routeIs('site.mac') || request()->routeIs('site.story') ? 'active' : '' }}">
                             {{ locale() == 'en' ? 'Apple Solution' : 'Apple في التعليم' }} <i
                                 class="fa fa-angle-down"></i>
+                        </a>
+                        <a class="extra" href="#" data-toggle="dropdown" aria-expanded="true">
+                            <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a
-                                    href="javascript:;">{{ locale() == 'en' ? 'iPad In Education' : 'ipad في التعليم' }}</a>
+                                    href="{{ route('site.ipad') }}">{{ locale() == 'en' ? 'iPad In Education' : 'ipad في التعليم' }}</a>
                             </li>
                             <li><a
-                                    href="javascript:;">{{ locale() == 'en' ? 'Mac in Education' : 'Mac في التعليم' }}</a>
+                                    href="{{ route('site.mac') }}">{{ locale() == 'en' ? 'Mac in Education' : 'Mac في التعليم' }}</a>
                             </li>
                             <li><a
                                     href="{{ route('site.story') }}">{{ locale() == 'en' ? 'Success Stories' : 'قصص النجاح' }}</a>

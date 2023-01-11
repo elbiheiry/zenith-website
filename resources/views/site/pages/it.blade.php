@@ -24,89 +24,47 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section_title text-center">
-                        <h3>Datacenter Designs</h3>
+                        <h3>{{ locale() == 'en' ? 'Datacenter Designs' : 'تصاميم مراكز البيانات' }}
+                        </h3>
                     </div>
                 </div>
                 <!--End Col-->
-                <div class="col-lg-4 col-12">
-                    <div class="block_item">
-                        <img src="{{ surl('images/solutions/server.png') }}" alt="" />
-                        <h3>Server Hardware</h3>
+                @foreach ($centers['data'] as $center)
+                    <div class="col-lg-4 col-12">
+                        <div class="block_item">
+                            <img src="{{ $center['image'] }}" alt="" />
+                            <h3>{{ $center['title_' . locale()] }}</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="block_item">
-                        <img src="{{ surl('images/solutions/dc_networking.png') }}" alt="" />
-                        <h3>DC Networking</h3>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="block_item">
-                        <img src="{{ surl('images/solutions/storage.jpg') }}" alt="" />
-                        <h3>Storage</h3>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
             <!--End Row-->
             <div class="row">
                 <div class="col-12">
                     <div class="logos_wrap">
                         <p>
-                            Data center facilities consulting services that deliver hybrid
-                            infrastructure-ready data centers as an integrated aspect of IT
-                            strategy.
+                            {{ $aspect['description_' . locale()] }}
                         </p>
                         <ul class="col-12 d-flex justify-content-between align-items-center">
-                            <li><img src="{{ surl('images/solutions/logo1.jpg') }}" alt="" /></li>
-                            <li><img src="{{ surl('images/solutions/logo2.jpg') }}" alt="" /></li>
-                            <li><img src="{{ surl('images/solutions/logo3.jpg') }}" alt="" /></li>
-                            <li><img src="{{ surl('images/solutions/logo4.jpg') }}" alt="" /></li>
-                            <li><img src="{{ surl('images/solutions/logo5.jpg') }}" alt="" /></li>
-                            <li><img src="{{ surl('images/solutions/logo6.jpg') }}" alt="" /></li>
-                            <li><img src="{{ surl('images/solutions/logo7.jpg') }}" alt="" /></li>
-                            <li><img src="{{ surl('images/solutions/logo8.jpg') }}" alt="" /></li>
+                            @foreach ($images['data'] as $image)
+                                <li><img src="{{ $image['image'] }}" alt="" /></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="sol_feat">
-                        <img src="{{ surl('images/solutions/planning.png') }}" alt="" />
-                        <h3>Planning</h3>
-                        <p>
-                            We perform a thorough analysis of your data infrastructure
-                            requirements
-                        </p>
+                @foreach ($steps['data'] as $step)
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="sol_feat">
+                            <img src="{{ $step['image'] }}" alt="" />
+                            <h3>{{ $step['title_' . locale()] }}</h3>
+                            <p>
+                                {{ $step['description_' . locale()] }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="sol_feat">
-                        <img src="{{ surl('images/solutions/design.png') }}" alt="" />
-                        <h3>Designing</h3>
-                        <p>
-                            Our expert architects will design a data center based on the
-                            proposed layout
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="sol_feat">
-                        <img src="{{ surl('images/solutions/construction.png') }}" alt="" />
-                        <h3>Construction</h3>
-                        <p>
-                            Our team will ensure that all stages of construction are
-                            well-managed
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="sol_feat">
-                        <img src="{{ surl('images/solutions/consultation.png') }}" alt="" />
-                        <h3>Consultation</h3>
-                        <p>
-                            We provide ongoing support long after the project is completed
-                        </p>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
         <!--End Container-->
@@ -118,26 +76,18 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section_title text-center">
-                        <h3>Backup & Disaster Recovery</h3>
+                        <h3>{{ locale() == 'en' ? 'Backup & Disaster Recovery' : 'النسخ الاحتياطي والتعافي من الكوارث' }}
+                        </h3>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <img src="{{ surl('images/solutions/veeam.png') }}" alt="" class="img_rad" />
-                    <p class="text_p">
-                        Veeam Backup & Replication is a data protection and disaster
-                        recovery solution for virtual environments of any size. It
-                        provides fast, flexible and reliable recovery of virtualized
-                        applications and data.
-                    </p>
-                </div>
-                <div class="col-lg-6">
-                    <img src="{{ surl('images/solutions/veeam2.png') }}" alt="" class="img_rad" />
-                    <p class="text_p">
-                        It also features data center functions including tape support and
-                        snapshot storage integration, along with integration with key
-                        deduplication backup target appliances.
-                    </p>
-                </div>
+                @foreach ($backups['data'] as $backup)
+                    <div class="col-lg-6">
+                        <img src="{{ $backup['image'] }}" alt="" class="img_rad" />
+                        <p class="text_p">
+                            {{ $backup['description_' . locale()] }}
+                        </p>
+                    </div>
+                @endforeach
             </div>
             <!--End Row-->
         </div>

@@ -47,13 +47,13 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label> description (EN)</label>
-                                <textarea class="form-control" name="description_en">{{ $content['description_en'] }}</textarea>
+                                <textarea class="form-control tiny-editor" name="description_en">{{ $content['description_en'] }}</textarea>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label> description (AR)</label>
-                                <textarea class="form-control" name="description_ar">{{ $content['description_ar'] }}</textarea>
+                                <textarea class="form-control tiny-editor" name="description_ar">{{ $content['description_ar'] }}</textarea>
                             </div>
                         </div>
                     </div>

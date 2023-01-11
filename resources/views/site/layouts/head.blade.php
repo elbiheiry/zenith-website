@@ -18,5 +18,6 @@
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ surl('vendor/aos/aos.css') }}" />
     <link rel="stylesheet" href="{{ surl('vendor/aos/animate.css') }}" />
+    <link rel="stylesheet" href="{{ surl('vendor/owl/owl.css') }}" />
     <link rel="stylesheet" href="{{ surl('css/style.css') }}" />
 </head>

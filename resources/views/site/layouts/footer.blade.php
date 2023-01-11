@@ -29,9 +29,11 @@
                 <h3>{{ locale() == 'en' ? 'Apple Solution' : 'Apple في التعليم' }}</h3>
                 <ul class="quick_links">
                     <li>
-                        <a href="javascript:;">{{ locale() == 'en' ? 'iPad In Education' : 'ipad في التعليم' }}</a>
+                        <a
+                            href="{{ route('site.ipad') }}">{{ locale() == 'en' ? 'iPad In Education' : 'ipad في التعليم' }}</a>
                     </li>
-                    <li><a href="javascript:;">{{ locale() == 'en' ? 'Mac in Education' : 'Mac في التعليم' }}</a>
+                    <li><a
+                            href="{{ route('site.mac') }}">{{ locale() == 'en' ? 'Mac in Education' : 'Mac في التعليم' }}</a>
                     </li>
                     <li><a
                             href="{{ route('site.story') }}">{{ locale() == 'en' ? 'Success Stories' : 'قصص النجاح' }}</a>
