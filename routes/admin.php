@@ -17,8 +17,10 @@ use App\Http\Controllers\Admin\{
     ProcessController,
     ProfileController,
     RegionController,
+    SContentController,
     SettingController,
     SliderController,
+    SolutionController,
     StepController,
     WhyController
 };
@@ -186,6 +188,28 @@ Route::middleware('auth:web')->group(function () {
 
     /**
      * solutions routes
+     */
+    Route::prefix('solutions')->name('solutions.')->controller(SolutionController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+
+        /**
+         * content routes
+         */
+        Route::prefix('content')->name('content.')->controller(SContentController::class)->group(function(){
+            Route::get('/{id}' , 'index')->name('index');
+            Route::post('/store/{id}' , 'store')->name('store');
+            Route::get('/edit/{id}' , 'edit')->name('edit');
+            Route::put('/update/{id}' , 'update')->name('update');
+            Route::delete('/delete/{id}' , 'destroy')->name('delete');
+        });
+    });
+    
+    /**
+     * jamf-education-solution routes
      */
     Route::prefix('jamf-education-solution/solutions')->name('jamf.solution.')->controller(JamfSolutionController::class)->group(function(){
         Route::get('/' , 'index')->name('index');
