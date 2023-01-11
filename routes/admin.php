@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\{
     AboutController,
     AppleController,
     AspectController,
+    BackupController,
     CenterController,
     ClientController,
     DashboardController,
@@ -164,6 +165,17 @@ Route::middleware('auth:web')->group(function () {
          * aspects routes
          */
         Route::prefix('steps')->name('steps.')->controller(StepController::class)->group(function(){
+            Route::get('/' , 'index')->name('index');
+            Route::post('/store' , 'store')->name('store');
+            Route::get('/edit/{id}' , 'edit')->name('edit');
+            Route::put('/update/{id}' , 'update')->name('update');
+            Route::delete('/delete/{id}' , 'destroy')->name('delete');
+        });
+
+        /**
+         * backups routes
+         */
+        Route::prefix('backup-and-disaster-recovery')->name('backup.')->controller(BackupController::class)->group(function(){
             Route::get('/' , 'index')->name('index');
             Route::post('/store' , 'store')->name('store');
             Route::get('/edit/{id}' , 'edit')->name('edit');
