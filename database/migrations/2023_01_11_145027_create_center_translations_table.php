@@ -15,6 +15,11 @@ class CreateCenterTranslationsTable extends Migration
     {
         Schema::create('center_translations', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->unsignedBigInteger('center_id');
+            $table->string('locale')->index();
+            $table->unique(['center_id', 'locale']);
+            $table->foreign('center_id')->references('id')->on('centers')->onDelete('cascade');
             $table->timestamps();
         });
     }

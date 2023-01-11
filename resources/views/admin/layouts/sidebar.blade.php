@@ -36,6 +36,27 @@
         </li>
 
         <li
+            class="sub-menu {{ request()->routeIs('admin.aspects.index') || request()->routeIs('admin.aspects.edit') || request()->routeIs('admin.center.index') || request()->routeIs('admin.center.edit') ? 'active' : '' }}">
+            <a rel="noreferrer" href="javascript:void(0);">
+                - Information technology
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul>
+                <li
+                    class="{{ request()->routeIs('admin.center.index') || request()->routeIs('admin.center.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.center.index') }}">
+                        - Data center
+                    </a>
+                </li>
+                <li
+                    class="{{ request()->routeIs('admin.aspects.index') || request()->routeIs('admin.aspects.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.aspects.index') }}">
+                        - Aspect
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li
             class="sub-menu {{ request()->routeIs('admin.jamf.solution.index') || request()->routeIs('admin.jamf.solution.edit') || request()->routeIs('admin.jamf.content.index') || request()->routeIs('admin.jamf.content.edit') ? 'active' : '' }}">
             <a rel="noreferrer" href="javascript:void(0);">
                 - Jamf education solutions

@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\{
     AboutController,
     AppleController,
+    AspectController,
+    CenterController,
     ClientController,
     DashboardController,
     IpadController,
@@ -128,6 +130,35 @@ Route::middleware('auth:web')->group(function () {
         Route::put('/update/{id}' , 'update')->name('update');
         Route::put('/update2' , 'update2')->name('update2');
         Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * information-technology routes
+     */
+    Route::prefix('information-technology')->group(function(){
+        /**
+         * data-center routes
+         */
+        Route::prefix('data-center')->name('center.')->controller(CenterController::class)->group(function(){
+            Route::get('/' , 'index')->name('index');
+            Route::post('/store' , 'store')->name('store');
+            Route::get('/edit/{id}' , 'edit')->name('edit');
+            Route::put('/update/{id}' , 'update')->name('update');
+            Route::delete('/delete/{id}' , 'destroy')->name('delete');
+        });
+
+        /**
+         * aspects routes
+         */
+        Route::prefix('aspects')->name('aspects.')->controller(AspectController::class)->group(function(){
+            Route::get('/' , 'index')->name('index');
+            Route::post('/store' , 'store')->name('store');
+            Route::get('/edit/{id}' , 'edit')->name('edit');
+            Route::put('/update/{id}' , 'update')->name('update');
+            Route::put('/update2' , 'update2')->name('update2');
+            Route::delete('/delete/{id}' , 'destroy')->name('delete');
+        });
+
     });
 
     /**

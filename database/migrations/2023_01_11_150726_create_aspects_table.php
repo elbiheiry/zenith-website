@@ -2,9 +2,10 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCentersTable extends Migration
+class CreateAspectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +14,12 @@ class CreateCentersTable extends Migration
      */
     public function up()
     {
-        Schema::create('centers', function (Blueprint $table) {
+        Schema::create('aspects', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
             $table->timestamps();
         });
+
+        DB::table('aspects')->insert(['id' => 1]);
     }
 
     /**
@@ -27,6 +29,6 @@ class CreateCentersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('centers');
+        Schema::dropIfExists('aspects');
     }
 }
