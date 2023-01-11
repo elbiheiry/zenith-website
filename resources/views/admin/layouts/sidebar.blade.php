@@ -36,7 +36,7 @@
         </li>
 
         <li
-            class="sub-menu {{ request()->routeIs('admin.aspects.index') || request()->routeIs('admin.aspects.edit') || request()->routeIs('admin.center.index') || request()->routeIs('admin.center.edit') ? 'active' : '' }}">
+            class="sub-menu {{ request()->routeIs('admin.steps.index') || request()->routeIs('admin.steps.edit') || request()->routeIs('admin.aspects.index') || request()->routeIs('admin.aspects.edit') || request()->routeIs('admin.center.index') || request()->routeIs('admin.center.edit') ? 'active' : '' }}">
             <a rel="noreferrer" href="javascript:void(0);">
                 - Information technology
                 <i class="fa fa-angle-down"></i>
@@ -52,6 +52,12 @@
                     class="{{ request()->routeIs('admin.aspects.index') || request()->routeIs('admin.aspects.edit') ? 'active' : '' }}">
                     <a href="{{ route('admin.aspects.index') }}">
                         - Aspect
+                    </a>
+                </li>
+                <li
+                    class="{{ request()->routeIs('admin.steps.index') || request()->routeIs('admin.steps.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.steps.index') }}">
+                        - Steps
                     </a>
                 </li>
             </ul>

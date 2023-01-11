@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\{
     RegionController,
     SettingController,
     SliderController,
+    StepController,
     WhyController
 };
 use Illuminate\Support\Facades\{Auth , Route};
@@ -159,6 +160,16 @@ Route::middleware('auth:web')->group(function () {
             Route::delete('/delete/{id}' , 'destroy')->name('delete');
         });
 
+        /**
+         * aspects routes
+         */
+        Route::prefix('steps')->name('steps.')->controller(StepController::class)->group(function(){
+            Route::get('/' , 'index')->name('index');
+            Route::post('/store' , 'store')->name('store');
+            Route::get('/edit/{id}' , 'edit')->name('edit');
+            Route::put('/update/{id}' , 'update')->name('update');
+            Route::delete('/delete/{id}' , 'destroy')->name('delete');
+        });
     });
 
     /**
