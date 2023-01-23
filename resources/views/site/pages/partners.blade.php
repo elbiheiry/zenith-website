@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-12" data-aos="fade-up" data-aos-delay="30">
                     <div class="section_title text-center">
-                        <h3>{{ locale() == 'en' ? 'Partners' : 'شركاؤنا في النجاح' }}</h3>
+                        <h3>{{ locale() == 'en' ? 'Our Partners' : 'شركاؤنا في النجاح' }}</h3>
                     </div>
                 </div>
                 @foreach ($partners['data'] as $partner)

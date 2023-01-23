@@ -17,7 +17,7 @@
                                             {{ $slide['description_' . locale()] }}
                                         </h3>
                                         <div class="w-100 animated" style="animation-delay: 1.2s">
-                                            <a href="{{ route('site.about') }}" class="link">
+                                            <a href="{{ route('site.solutions') }}" class="link">
                                                 <span> {{ locale() == 'en' ? 'Read More' : 'إقرا المزيد' }} </span>
                                             </a>
                                         </div>
@@ -51,7 +51,7 @@
     <!--  Section ==========================================-->
     <section>
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="about_img" data-aos="fade-up" data-aos-delay="30">
                         <img src="{{ $about['image1'] }}" alt="" />
@@ -67,7 +67,7 @@
                         @endforeach
 
                         <a href="{{ route('site.about') }}" class="link">
-                            {{ locale() == 'en' ? 'Read More' : 'إقرا المزيد' }}
+                            <span>{{ locale() == 'en' ? 'Read More' : 'إقرا المزيد' }}</span>
                         </a>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
 
                     </p>
                     <a href="{{ route('site.contact') }}"
-                        class="link">{{ locale() == 'en' ? 'Contact us' : 'إتصل بنا' }}</a>
+                        class="link"><span>{{ locale() == 'en' ? 'Contact us' : 'إتصل بنا' }}</span></a>
                 </div>
             </div>
             <!--End Row-->

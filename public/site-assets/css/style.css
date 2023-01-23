@@ -306,12 +306,12 @@ body {
   margin: 15px 0;
 }
 .list li {
-  display: block;
+  /*display: block;*/
   line-height: 20px;
   margin-bottom: 10px;
   padding-inline-start: 25px;
   font-size: 14px;
-  color: #14568a;
+  /*color: #14568a;*/
   position: relative;
 }
 .list li::before {
@@ -1781,7 +1781,7 @@ ul.quick_links li a:hover {
   margin: 15px auto;
 }
 .about_img img {
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
   object-fit: cover;
   -webkit-border-radius: 5px;
@@ -1800,11 +1800,12 @@ ul.quick_links li a:hover {
 .about_cont.mid {
   padding: 0;
   margin: 15px auto;
+  text-align: center;
 }
 .about_cont h2 {
   color: #14568a;
   font-size: 36px;
-  margin: 0 0 15px;
+  margin: 0 0 10px;
   font-weight: 600;
 }
 .about_cont p {
@@ -1813,7 +1814,7 @@ ul.quick_links li a:hover {
   margin: 0 0 15px;
 }
 .about_cont .about_icon {
-  margin: 0 0 25px;
+  margin: 0 auto 15px;
 }
 @media (max-width: 1199px) {
   .about_cont {
@@ -1855,7 +1856,7 @@ ul.quick_links li a:hover {
   overflow: hidden;
   margin: 0 auto 25px;
   cursor: pointer;
-  padding: 15px;
+  padding: 30px 15px;
   background-color: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

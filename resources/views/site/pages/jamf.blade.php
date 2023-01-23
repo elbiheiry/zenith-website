@@ -1,6 +1,6 @@
 @extends('site.layouts.master')
 @section('content')
-    <div class="page_head">
+    <div class="page_head" hidden>
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-between align-items-center">

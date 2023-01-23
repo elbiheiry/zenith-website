@@ -76,7 +76,8 @@ class SolutionRepository
             'ar' => [
                 'title' => $request['title_ar'],
                 'brief' => $request['brief_ar']
-            ]
+            ],
+            'link' => $request['link'],
         ];
 
         if ($request['image']) {

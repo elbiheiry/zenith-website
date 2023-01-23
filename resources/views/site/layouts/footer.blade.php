@@ -65,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <p>© {{ locale() == 'en' ? 'All Rights Reserved' : 'جميع الحقوق محفوظة' }} Zenith Arabia 2022.</p>
+                    <p>{{ locale() == 'en' ? 'Copyright © Zenith Arabia 2022 All Rights Reserved.' : 'جميع الحقوق محفوظة ل سيميتة العربية 2022 ©' }}</p>
 
                     <ul>
                         <li>

@@ -47,7 +47,7 @@ class AboutRepository
 
         if ($request['image1']) {
             $this->image_delete($about->image1 , 'about');
-            $data['image1'] = $this->image_manipulate($request['image1'] , 'about' , 650 , 350);
+            $data['image1'] = $this->image_manipulate($request['image1'] , 'about' , 450 , 600);
         }
 
         if ($request['image2']) {

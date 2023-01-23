@@ -33,7 +33,7 @@
                                 <label>About us Image </label>
                                 <input type="file" class="jfilestyle" name="image1" />
                             </div>
-                            <span class="text-danger">Image dimensions should be : 650 * 350
+                            <span class="text-danger">Image dimensions should be : 450 * 600
                             </span>
                         </div>
                         <div class="col-6">

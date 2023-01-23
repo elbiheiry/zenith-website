@@ -73,6 +73,7 @@ class SolutionController extends Controller
 
             return update_response();
         } catch (\Throwable $th) {
+            dd($th->getMessage());
             return error_response();
         }
     }

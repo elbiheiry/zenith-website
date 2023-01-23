@@ -20,7 +20,7 @@
     <!--  Section ==========================================-->
     <section>
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="about_img" data-aos="fade-up" data-aos-delay="30">
                         <img src="{{ $about['image1'] }}" alt="" />

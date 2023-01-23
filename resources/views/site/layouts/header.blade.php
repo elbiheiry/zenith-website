@@ -72,7 +72,7 @@
                     <li><a href="{{ route('site.contact') }}"
                             class="{{ request()->routeIs('site.contact') ? 'active' : '' }}">
                             {{ locale() == 'en' ? 'Contact us' : 'إتصل بنا' }}</a></li>
-                    <li><a href=""> {{ locale() == 'en' ? 'Store' : 'المتجر الإلكتروني' }}</a></li>
+                    <li><a href="https://zenith.brandbourne.com"> {{ locale() == 'en' ? 'Store' : 'المتجر الإلكتروني' }}</a></li>
                     <li>
                         @if (locale() == 'en')
                             <a href="{{ LaravelLocalization::getLocalizedURL('ar') }}" class="flag">
