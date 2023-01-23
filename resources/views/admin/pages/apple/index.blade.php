@@ -23,6 +23,17 @@
                     @method('put')
                     <div class="row">
                         <div class="col-6">
+                            <img src="{{ $apple['image'] }}" style="height : 100px !important">
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Image </label>
+                                <input type="file" class="jfilestyle" name="image" />
+                            </div>
+                            <span class="text-danger">Image dimensions should be : 1440 * 610
+                            </span>
+                        </div>
+                        <div class="col-6">
                             <div class="form-group">
                                 <label> Title (EN)</label>
                                 <input type="text" class="form-control" name="title_en"

@@ -2,17 +2,16 @@
 
 namespace App\Repositories;
 
-use App\Http\Resources\MacResource;
-use App\Models\Mac;
+use App\Http\Resources\ContentResource;
+use App\Models\Content;
 use App\Traits\ImageTrait;
 
-class MacRepository 
+class ContentRepository 
 {
     use ImageTrait;
-    
     public $model;
 
-    public function __construct(Mac $model)
+    public function __construct(Content $model)
     {
         $this->model = $model;
     }
@@ -21,7 +20,7 @@ class MacRepository
     {
         $apple = $this->model->firstOrFail();
 
-        return (new MacResource($apple))->resolve();
+        return (new ContentResource($apple))->resolve();
     }
 
     public function edit($request)
@@ -39,7 +38,7 @@ class MacRepository
         ];
         if ($request['image']) {
             $this->image_delete($apple->image , 'apple');
-            $data['image'] = $this->image_manipulate($request['image'] , 'apple' , 1440 , 610);
+            $data['image'] = $this->image_manipulate($request['image'] , 'home' , 450 , 600);
         }
         $apple->update($data);
     }

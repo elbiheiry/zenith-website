@@ -21,7 +21,7 @@
     <!--End Div-->
 
     <!--  Section ==========================================-->
-    <section class="section_img apple_banner" style="background-image: url({{ surl('images/apple/ipad_banner.png') }})">
+    <section class="section_img apple_banner" style="background-image: url({{ $content['image'] }})">
         <div class="container">
             <div class="row position-relative">
                 <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="30">

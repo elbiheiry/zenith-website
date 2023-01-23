@@ -62,12 +62,12 @@
             <div class="col-lg-6">
                 <div class="widget">
                     <div class="widget-title"> Apple messages
-                        <a href="{{ route('admin.messages.index') }}" class="custom-btn"> see all</a>
+                        <a href="{{ route('admin.solution_message.index') }}" class="custom-btn"> see all</a>
                     </div>
                     <div class="widget-content" style="padding: 0">
                         @foreach ($solutions as $message)
                             <div class="item-list">
-                                <a href="javascript:;">
+                                <a href="{{ route('admin.solution_message.show', ['id' => $message->id]) }}">
                                     <img src="{{ $message->image() }}" />
                                     <div class="item-content">
                                         {{ $message->email }}

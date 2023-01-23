@@ -39,7 +39,7 @@ class MacRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'image' => ['image' , 'max:2048', 'mimes:png,jpg,jpeg'],
+            'image' => ['image' , 'max:2048', 'mimes:png,jpg,jpeg'],
             'title_en' => ['required' , 'string' , 'max:255'],
             'title_ar' => ['required' , 'string' , 'max:255'],
             'description_en' => ['required' ],
@@ -50,7 +50,7 @@ class MacRequest extends FormRequest
     public function attributes()
     {
         return [
-            // 'image' => 'Image',
+            'image' => 'Image',
             'title_en' => 'title (EN)',
             'title_ar' => 'title (AR)',
             'description_en' => 'description (EN)',

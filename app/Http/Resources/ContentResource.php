@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Traits\ImageTrait;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MacResource extends JsonResource
+class ContentResource extends JsonResource
 {
     use ImageTrait;
 
@@ -19,7 +19,7 @@ class MacResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'image' => $this->get_image($this->image , 'apple'),
+            'image' => $this->get_image($this->image , 'home'),
             'title_en' => $this->translate('en')->title,
             'title_ar' => $this->translate('ar')->title,
             'description_en' => $this->translate('en')->description,

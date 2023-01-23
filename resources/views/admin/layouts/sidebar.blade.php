@@ -20,7 +20,7 @@
             </a>
         </li>
         <li
-            class="sub-menu {{ request()->routeIs('admin.sliders.index') || request()->routeIs('admin.sliders.edit') ? 'active' : '' }}">
+            class="sub-menu {{ request()->routeIs('admin.content.index') || request()->routeIs('admin.sliders.index') || request()->routeIs('admin.sliders.edit') ? 'active' : '' }}">
             <a rel="noreferrer" href="javascript:void(0);">
                 - Home page
                 <i class="fa fa-angle-down"></i>
@@ -30,6 +30,12 @@
                     class="{{ request()->routeIs('admin.sliders.index') || request()->routeIs('admin.sliders.edit') ? 'active' : '' }}">
                     <a href="{{ route('admin.sliders.index') }}">
                         - Slideshow
+                    </a>
+                </li>
+
+                <li class="{{ request()->routeIs('admin.content.index') ? 'active' : '' }}">
+                    <a href="{{ route('admin.content.index') }}">
+                        - Content
                     </a>
                 </li>
             </ul>
@@ -97,7 +103,7 @@
             </ul>
         </li>
         <li
-            class="sub-menu {{ request()->routeIs('admin.apple.index') || request()->routeIs('admin.apple.edit') || request()->routeIs('admin.ipad.index') || request()->routeIs('admin.ipad.edit') || request()->routeIs('admin.mac.index') || request()->routeIs('admin.mac.edit') ? 'active' : '' }}">
+            class="sub-menu {{ request()->routeIs('admin.stories.index') || request()->routeIs('admin.stories.edit') || request()->routeIs('admin.apple.index') || request()->routeIs('admin.apple.edit') || request()->routeIs('admin.ipad.index') || request()->routeIs('admin.ipad.edit') || request()->routeIs('admin.mac.index') || request()->routeIs('admin.mac.edit') ? 'active' : '' }}">
             <a rel="noreferrer" href="javascript:void(0);">
                 - Apple solutions
                 <i class="fa fa-angle-down"></i>
@@ -119,6 +125,12 @@
                     class="{{ request()->routeIs('admin.mac.index') || request()->routeIs('admin.mac.edit') ? 'active' : '' }}">
                     <a href="{{ route('admin.mac.index') }}">
                         - Mac in education
+                    </a>
+                </li>
+                <li
+                    class="{{ request()->routeIs('admin.stories.index') || request()->routeIs('admin.stories.edit') ? 'active' : '' }}">
+                    <a href="{{ route('admin.stories.index') }}">
+                        - Success stories
                     </a>
                 </li>
             </ul>
@@ -162,6 +174,12 @@
             class="{{ request()->routeIs('admin.messages.index') || request()->routeIs('admin.messages.show') ? 'active' : '' }}">
             <a href="{{ route('admin.messages.index') }}">
                 - Messages
+            </a>
+        </li>
+        <li
+            class="{{ request()->routeIs('admin.solution_message.index') || request()->routeIs('admin.solution_message.show') ? 'active' : '' }}">
+            <a href="{{ route('admin.solution_message.index') }}">
+                - Apple Messages
             </a>
         </li>
     </ul>

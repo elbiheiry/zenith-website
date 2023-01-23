@@ -22,17 +22,14 @@
     <section>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <iframe src="https://cdn.flipsnack.com/widget/v2/widget.html?hash=dtm43iitk5" seamless="seamless"
-                        scrolling="no" allowfullscreen="" allow="autoplay; clipboard-read; clipboard-write" width="100%"
-                        height="480" frameborder="0"></iframe>
-                </div>
-                <div class="col-lg-6">
-                    <iframe loading="lazy" src="https://cdn.flipsnack.com/widget/v2/widget.html?hash=hjsda00jiq"
-                        seamless="seamless" scrolling="no" allowfullscreen=""
-                        allow="autoplay; clipboard-read; clipboard-write" width="100%" height="480"
-                        frameborder="0"></iframe>
-                </div>
+                @foreach ($stories['data'] as $story)
+                    <div class="col-lg-6">
+                        <h2>{{ $story['title_' . locale()] }}</h2>
+                        <iframe src="{{ $story['link'] }}" seamless="seamless" scrolling="no" allowfullscreen=""
+                            allow="autoplay; clipboard-read; clipboard-write" width="100%" height="480"
+                            frameborder="0"></iframe>
+                    </div>
+                @endforeach
             </div>
             <!--End Row-->
         </div>

@@ -2,13 +2,10 @@
 
 namespace App\Http\Resources;
 
-use App\Traits\ImageTrait;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MacResource extends JsonResource
+class StoryResource extends JsonResource
 {
-    use ImageTrait;
-
     /**
      * Transform the resource into an array.
      *
@@ -19,11 +16,9 @@ class MacResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'image' => $this->get_image($this->image , 'apple'),
+            'link' => $this->link,
             'title_en' => $this->translate('en')->title,
-            'title_ar' => $this->translate('ar')->title,
-            'description_en' => $this->translate('en')->description,
-            'description_ar' => $this->translate('ar')->description
+            'title_ar' => $this->translate('ar')->title
         ];
     }
 }

@@ -4,9 +4,12 @@ namespace App\Repositories;
 
 use App\Http\Resources\AppleContentResource;
 use App\Models\AppleContent;
+use App\Traits\ImageTrait;
 
 class AppleContentRepository 
 {
+    use ImageTrait;
+    
     public $model;
 
     public function __construct(AppleContent $model)
@@ -16,14 +19,14 @@ class AppleContentRepository
 
     public function show()
     {
-        $about = $this->model->firstOrFail();
+        $apple = $this->model->firstOrFail();
 
-        return (new AppleContentResource($about))->resolve();
+        return (new AppleContentResource($apple))->resolve();
     }
 
     public function edit($request)
     {
-        $about = $this->model->firstOrFail();
+        $apple = $this->model->firstOrFail();
         $data = [
             'en' => [
                 'title' => $request['title_en'],
@@ -34,6 +37,12 @@ class AppleContentRepository
                 'description' => $request['description_ar']
             ],
         ];
-        $about->update($data);
+
+        if ($request['image']) {
+            $this->image_delete($apple->image , 'apple');
+            $data['image'] = $this->image_manipulate($request['image'] , 'apple' , 1440 , 610);
+        }
+
+        $apple->update($data);
     }
 }

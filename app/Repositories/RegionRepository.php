@@ -16,7 +16,7 @@ class RegionRepository
 
     public function list(): array
     {
-        $objects = $this->model->all();
+        $objects = $this->model->all()->sortByDesc('id');
 
         return RegionResource::collection($objects)->response()->getData(true);
     }

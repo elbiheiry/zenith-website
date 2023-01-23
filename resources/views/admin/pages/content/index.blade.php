@@ -3,37 +3,35 @@
     <!-- Page head ==========================================-->
     <div class="page-head">
         <i class="fa fa-list"></i>
-        Apple solution
+        Home content
         <ul class="breadcrumb">
             <li>
                 <a href="{{ route('admin.dashboard') }}">
                     <i class="fas fa-tachometer-alt"></i>
                     Dashboard</a>
             </li>
-            <li class="active">Apple solution</li>
+            <li class="active">Home content</li>
         </ul>
     </div>
     <!-- Page content ==========================================-->
     <div class="page-content">
         <div class="widget">
-            <div class="widget-title">Apple solution</div>
+            <div class="widget-title"> Home content</div>
             <div class="widget-content">
-                <form method="put" action="{{ route('admin.apple.update', ['id' => $content['id']]) }}" class="ajax-form">
+                <form method="put" action="{{ route('admin.content.update') }}" class="ajax-form">
                     @csrf
                     @method('put')
                     <div class="row">
                         <div class="col-6">
-                            <img src="{{ $content['image'] }}" width="100px; !important">
+                            <img src="{{ $content['image'] }}" style="height : 100px !important">
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Image </label>
                                 <input type="file" class="jfilestyle" name="image" />
                             </div>
-                            <div class="form-group">
-                                <label>Button link </label>
-                                <input type="text" class="form-control" name="link" value="{{ $content['link'] }}" />
-                            </div>
+                            <span class="text-danger">Image dimensions should be : 450 * 600
+                            </span>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
@@ -41,26 +39,14 @@
                                 <input type="text" class="form-control" name="title_en"
                                     value="{{ $content['title_en'] }}" />
                             </div>
+                        </div>
+                        <div class="col-6">
                             <div class="form-group">
                                 <label> Title (AR)</label>
                                 <input type="text" class="form-control font_ar" name="title_ar"
                                     value="{{ $content['title_ar'] }}" />
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label> Subtitle (EN)</label>
-                                <input type="text" class="form-control" name="subtitle_en"
-                                    value="{{ $content['subtitle_en'] }}" />
-                            </div>
-                            <div class="form-group">
-                                <label> Subtitle (AR)</label>
-                                <input type="text" class="form-control font_ar" name="subtitle_ar"
-                                    value="{{ $content['subtitle_ar'] }}" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <label> description (EN)</label>

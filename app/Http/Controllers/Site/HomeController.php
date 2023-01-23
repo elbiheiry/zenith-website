@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Models\SolutionMessage;
-use App\Repositories\{SliderRepository , PartnerRepository , ClientRepository , AboutRepository, AppleContentRepository, AppleRepository, AspectLogoRepository, AspectRepository, BackupRepository, CenterRepository, IContentRepository, IpadRepository, JamfContentRepository, JamfSolutionRepository, JamfStepRepository, MacRepository, MContentRepository, ProcessRepository, RegionRepository, SolutionRepository, StepRepository, WhyRepository};
+use App\Repositories\{SliderRepository , PartnerRepository , ClientRepository , AboutRepository, AppleContentRepository, AppleRepository, AspectLogoRepository, AspectRepository, BackupRepository, CenterRepository, ContentRepository, IContentRepository, IpadRepository, JamfContentRepository, JamfSolutionRepository, JamfStepRepository, MacRepository, MContentRepository, ProcessRepository, RegionRepository, SolutionRepository, StepRepository, StoryRepository, WhyRepository};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +17,8 @@ class HomeController extends Controller
         $stepRepository,$backupRepository,$jamfStepRepository,$jamfContentRepository,
         $jamfSolutionRepository,$ipadRepository,$iContentRepository,$whyRepository,
         $processRepository,$macRepository,$mContentRepository,
-        $appleContentRepository,$appleRepository,$solutionRepository;
+        $appleContentRepository,$appleRepository,$solutionRepository,
+        $contentRepository , $storyRepository;
     public function __construct(
         SliderRepository $sliderRepository ,
         ClientRepository $clientRepository ,
@@ -40,7 +41,9 @@ class HomeController extends Controller
         MContentRepository $mContentRepository,
         AppleRepository $appleRepository,
         AppleContentRepository $appleContentRepository,
-        SolutionRepository $solutionRepository
+        SolutionRepository $solutionRepository,
+        ContentRepository $contentRepository,
+        StoryRepository $storyRepository
     ){
         $this->sliderRepository = $sliderRepository;
         $this->clientRepository = $clientRepository;
@@ -64,12 +67,14 @@ class HomeController extends Controller
         $this->appleRepository = $appleRepository;
         $this->appleContentRepository = $appleContentRepository;
         $this->solutionRepository = $solutionRepository;
+        $this->contentRepository = $contentRepository;
+        $this->storyRepository = $storyRepository;
     }
 
     public function index()
     {
         $slides = $this->sliderRepository->list();
-        $about = $this->aboutRepository->show();
+        $about = $this->contentRepository->show();
         $clients = $this->clientRepository->list(6);
         $partners = $this->partnerRespository->list(8);
 
@@ -135,7 +140,8 @@ class HomeController extends Controller
 
     public function story()
     {
-        return view('site.pages.story');
+        $stories = $this->storyRepository->list();
+        return view('site.pages.story' ,compact('stories'));
     }
 
     public function it()

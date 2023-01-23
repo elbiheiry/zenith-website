@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SolutionRequest;
-use App\Models\Solution;
-use App\Repositories\SolutionRepository;
+use App\Http\Requests\StoryRequest;
+use App\Models\Story;
+use App\Repositories\StoryRepository;
 use Illuminate\Http\Request;
 
-class SolutionController extends Controller
+class StoryController extends Controller
 {
-    public $solutionRepository;
+    public $storyRepository;
 
-    public function __construct(SolutionRepository $solutionRepository)
+    public function __construct(StoryRepository $storyRepository)
     {
-        $this->solutionRepository = $solutionRepository;
+        $this->storyRepository = $storyRepository;
     }
 
      /**
@@ -24,21 +24,21 @@ class SolutionController extends Controller
      */
     public function index()
     {
-        $solutions = $this->solutionRepository->list();
+        $stories = $this->storyRepository->list();
 
-        return view('admin.pages.solutions.index' , compact('solutions'));
+        return view('admin.pages.stories.index' , compact('stories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  SolutionRequest  $request
+     * @param  StoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SolutionRequest $request)
+    public function store(StoryRequest $request)
     {
         try {
-            $this->solutionRepository->create($request);
+            $this->storyRepository->create($request);
 
             return add_response();
         } catch (\Throwable $th) {
@@ -55,25 +55,24 @@ class SolutionController extends Controller
      */
     public function edit($id)
     {
-        $solution = $this->solutionRepository->showById($id);
-        return view('admin.pages.solutions.edit' ,compact('solution'));
+        $story = $this->storyRepository->showById($id);
+        return view('admin.pages.stories.edit' ,compact('story'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  SolutionRequest  $request
+     * @param  StoryRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SolutionRequest $request, $id)
+    public function update(StoryRequest $request, $id)
     {
         try {
-            $this->solutionRepository->edit($request , $id);
+            $this->storyRepository->edit($request , $id);
 
             return update_response();
         } catch (\Throwable $th) {
-            // dd($th->getMessage());
             return error_response();
         }
     }
@@ -86,7 +85,7 @@ class SolutionController extends Controller
      */
     public function destroy($id)
     {
-        Solution::findOrFail($id)->delete();
+        Story::findOrFail($id)->delete();
 
         return redirect()->back();
     }

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AppleContentRequest extends FormRequest
+class StoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -39,22 +39,18 @@ class AppleContentRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => ['image' , 'max:2048', 'mimes:png,jpg,jpeg'],
             'title_en' => ['required' , 'string' , 'max:255'],
             'title_ar' => ['required' , 'string' , 'max:255'],
-            'description_en' => ['required' ],
-            'description_ar' => ['required' ],
+            'link' => ['required']
         ];
     }
 
     public function attributes()
     {
         return [
-            'image' => 'Image',
-            'title_en' => 'title (EN)',
-            'title_ar' => 'title (AR)',
-            'description_en' => 'description (EN)',
-            'description_ar' => 'description (AR)',
+            'title_en' => 'Title (EN)',
+            'title_ar' => 'Title (AR)',
+            'link' => 'Link'
         ];
     }
 }

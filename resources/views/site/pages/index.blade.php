@@ -54,13 +54,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="about_img" data-aos="fade-up" data-aos-delay="30">
-                        <img src="{{ $about['image1'] }}" alt="" />
+                        <img src="{{ $about['image'] }}" alt="" />
                     </div>
                 </div>
                 <div class="col-lg-7" data-aos="fade-up" data-aos-delay="60">
                     <div class="about_cont">
-                        <h2>{{ locale() == 'en' ? 'Zenith Arabia' : 'سمتية العربية' }} </h2>
-                        @foreach (explode("\n", $about['description1_' . locale()]) as $item)
+                        <h2>{{ $about['title_' . locale()] }} </h2>
+                        @foreach (explode("\n", $about['description_' . locale()]) as $item)
                             <p>
                                 {{ $item }}
                             </p>

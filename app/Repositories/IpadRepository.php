@@ -4,9 +4,11 @@ namespace App\Repositories;
 
 use App\Http\Resources\IpadResource;
 use App\Models\Ipad;
+use App\Traits\ImageTrait;
 
 class IpadRepository 
 {
+    use ImageTrait;
     public $model;
 
     public function __construct(Ipad $model)
@@ -16,14 +18,14 @@ class IpadRepository
 
     public function show()
     {
-        $about = $this->model->firstOrFail();
+        $apple = $this->model->firstOrFail();
 
-        return (new IpadResource($about))->resolve();
+        return (new IpadResource($apple))->resolve();
     }
 
     public function edit($request)
     {
-        $about = $this->model->firstOrFail();
+        $apple = $this->model->firstOrFail();
         $data = [
             'en' => [
                 'title' => $request['title_en'],
@@ -34,6 +36,10 @@ class IpadRepository
                 'description' => $request['description_ar']
             ],
         ];
-        $about->update($data);
+        if ($request['image']) {
+            $this->image_delete($apple->image , 'apple');
+            $data['image'] = $this->image_manipulate($request['image'] , 'apple' , 1440 , 610);
+        }
+        $apple->update($data);
     }
 }

@@ -11,6 +11,8 @@ class AppleContent extends Model implements TranslatableContract
 {
     use HasFactory , Translatable;
 
+    protected $fillable = ['image'];
+
     public $translatedAttributes = [
         'title' , 'description'
     ];

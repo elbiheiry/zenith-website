@@ -43,16 +43,17 @@
                     </ul>
                     <ul class="social">
                         <li>
-                            <a href="https://www.linkedin.com/company/zenith-arabia/" class="linkedin_bc fab fa-linkedin-in"
-                                target="_blank"></a>
+                            <a href="https://www.facebook.com/profile.php?id=100032330966914"
+                                class="facebook_bc fab fa-facebook-f" target="_blank"></a>
                         </li>
+
                         <li>
                             <a href="https://twitter.com/zenitharabia?lang=en" class="twitter_bc fab fa-twitter"
                                 target="_blank"></a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com/profile.php?id=100032330966914"
-                                class="facebook_bc fab fa-facebook-f" target="_blank"></a>
+                            <a href="https://www.linkedin.com/company/zenith-arabia/" class="linkedin_bc fab fa-linkedin-in"
+                                target="_blank"></a>
                         </li>
                     </ul>
                 </div>

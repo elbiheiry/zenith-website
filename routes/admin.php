@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\{
     BackupController,
     CenterController,
     ClientController,
+    ContentController,
     DashboardController,
     IpadController,
     JamfController,
@@ -21,7 +22,9 @@ use App\Http\Controllers\Admin\{
     SettingController,
     SliderController,
     SolutionController,
+    SolutionMessageController,
     StepController,
+    StoryController,
     WhyController
 };
 use Illuminate\Support\Facades\{Auth , Route};
@@ -69,6 +72,16 @@ Route::middleware('auth:web')->group(function () {
     });
 
     /**
+     * solution messages routes
+     */
+    Route::prefix('solution_messages')->name('solution_message.')->group(function ()
+    {
+        Route::get('/' , [SolutionMessageController::class , 'index'])->name('index');
+        Route::get('/show/{id}' , [SolutionMessageController::class , 'show'])->name('show');
+        Route::delete('/destroy/{id}' , [SolutionMessageController::class , 'destroy'])->name('delete');
+    });
+
+    /**
      * slideshow routes
      */
     Route::prefix('home/slideshow')->name('sliders.')->controller(SliderController::class)->group(function (){
@@ -77,6 +90,14 @@ Route::middleware('auth:web')->group(function () {
         Route::get('/edit/{id}' , 'edit')->name('edit');
         Route::put('/update/{id}' , 'update')->name('update');
         Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+    /**
+     * content routes
+     */
+    Route::prefix('home/content')->name('content.')->controller(ContentController::class)->group(function (){
+        Route::get('/' , 'index')->name('index');
+        Route::put('/update' , 'update')->name('update');
     });
 
     /**
@@ -133,6 +154,18 @@ Route::middleware('auth:web')->group(function () {
         Route::get('/edit/{id}' , 'edit')->name('edit');
         Route::put('/update/{id}' , 'update')->name('update');
         Route::put('/update2' , 'update2')->name('update2');
+        Route::delete('/delete/{id}' , 'destroy')->name('delete');
+    });
+
+
+    /**
+     * jamf-education-solution routes
+     */
+    Route::prefix('success-stories')->name('stories.')->controller(StoryController::class)->group(function(){
+        Route::get('/' , 'index')->name('index');
+        Route::post('/store' , 'store')->name('store');
+        Route::get('/edit/{id}' , 'edit')->name('edit');
+        Route::put('/update/{id}' , 'update')->name('update');
         Route::delete('/delete/{id}' , 'destroy')->name('delete');
     });
 
