@@ -170,7 +170,7 @@ class HomeController extends Controller
         $ipads = $this->iContentRepository->list();
         $whies = $this->whyRepository->list();
         $processes = $this->processRepository->list();
-        $clients = $this->clientRepository->list(6);
+        $clients = $this->clientRepository->list();
 
         return view('site.pages.ipad' , compact('content' , 'ipads' , 'whies' , 'processes' , 'clients'));
     }
@@ -181,7 +181,7 @@ class HomeController extends Controller
         $macs = $this->mContentRepository->list();
         $whies = $this->whyRepository->list();
         $processes = $this->processRepository->list();
-        $clients = $this->clientRepository->list(6);
+        $clients = $this->clientRepository->list();
 
         return view('site.pages.mac' , compact('content' , 'macs' , 'whies' , 'processes' , 'clients'));
     }
@@ -190,7 +190,7 @@ class HomeController extends Controller
     {
         $content = $this->appleContentRepository->show();
         $apples = $this->appleRepository->list();
-        $clients = $this->clientRepository->list(6);
+        $clients = $this->clientRepository->list();
 
         return view('site.pages.apple' ,compact('content' , 'apples' , 'clients'));
     }
